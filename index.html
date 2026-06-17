@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude Code 技能库</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --muted: #8b949e;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --orange: #d2991d;
+    --purple: #a371f7;
+    --red: #f85149;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+  h1 { font-size: 2em; margin-bottom: 8px; }
+  h1 .count { color: var(--accent); }
+  .subtitle { color: var(--muted); margin-bottom: 32px; }
+  .category {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .category-header {
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .category.open .category-header { border-color: var(--border); }
+  .category-header h2 { font-size: 1.1em; }
+  .category-header .badge {
+    background: var(--border);
+    color: var(--muted);
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: .8em;
+  }
+  .skills { display: none; padding: 0 20px 16px; }
+  .category.open .skills { display: block; }
+  .skill {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill:last-child { border-bottom: none; }
+  .skill-name {
+    font-weight: 600;
+    color: var(--accent);
+    min-width: 160px;
+    font-family: 'SF Mono', 'Consolas', monospace;
+    font-size: .9em;
+  }
+  .skill-trigger {
+    color: var(--muted);
+    font-size: .8em;
+    min-width: 120px;
+  }
+  .skill-desc { flex: 1; font-size: .9em; }
+  .c1 .category-header { border-left: 3px solid var(--green); }
+  .c2 .category-header { border-left: 3px solid var(--accent); }
+  .c3 .category-header { border-left: 3px solid var(--purple); }
+  .c4 .category-header { border-left: 3px solid var(--orange); }
+  .c5 .category-header { border-left: 3px solid #f78166; }
+  .c6 .category-header { border-left: 3px solid var(--red); }
+  .c7 .category-header { border-left: 3px solid #7ee787; }
+  .c8 .category-header { border-left: 3px solid #ffa657; }
+  .footer { text-align: center; color: var(--muted); margin-top: 40px; font-size: .85em; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<h1>Claude Code <span class="count">技能库</span></h1>
+<p class="subtitle">42 个技能 · 8 大分类 · 永久更新</p>
+
+<div class="category c1 open">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>🎓 雅思备考</h2>
+    <span class="badge">8 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">ielts</span><span class="skill-trigger">/ielts</span><span class="skill-desc">入口 + 进度追踪 + 复盘 + 规划</span></div>
+    <div class="skill"><span class="skill-name">ielts-dashboard</span><span class="skill-trigger">/ielts-dashboard</span><span class="skill-desc">可视化仪表板：趋势图、雷达图、热力图、错题分布</span></div>
+    <div class="skill"><span class="skill-name">ielts-diagnose</span><span class="skill-trigger">/ielts-diagnose</span><span class="skill-desc">成绩诊断 + 弱项定位 + 个性化备考计划</span></div>
+    <div class="skill"><span class="skill-name">ielts-listening</span><span class="skill-trigger">/ielts-listening</span><span class="skill-desc">听力错题分析 + 精听任务 + 题型错误追踪</span></div>
+    <div class="skill"><span class="skill-name">ielts-reading</span><span class="skill-trigger">/ielts-reading</span><span class="skill-desc">精读教练：同义替换 + T/F/NG 逻辑 + 段落结构</span></div>
+    <div class="skill"><span class="skill-name">ielts-speaking</span><span class="skill-trigger">/ielts-speaking</span><span class="skill-desc">口语素材工厂：话题分组 + 万能故事 + Part 3 预测</span></div>
+    <div class="skill"><span class="skill-name">ielts-vocab</span><span class="skill-trigger">/ielts-vocab</span><span class="skill-desc">词汇训练：间隔重复 + 同义替换 + 搭配练习</span></div>
+    <div class="skill"><span class="skill-name">ielts-writing</span><span class="skill-trigger">/ielts-writing</span><span class="skill-desc">写作批改：四维评分 + 句子标注 + 改写对比</span></div>
+  </div>
+</div>
+
+<div class="category c2 open">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>📄 文档处理</h2>
+    <span class="badge">6 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">docx</span><span class="skill-trigger">提及 .docx</span><span class="skill-desc">创建、读取、编辑 Word 文档</span></div>
+    <div class="skill"><span class="skill-name">pdf</span><span class="skill-trigger">提及 .pdf</span><span class="skill-desc">PDF 读写、合并、拆分、OCR、表单填写</span></div>
+    <div class="skill"><span class="skill-name">pptx</span><span class="skill-trigger">提及 .pptx</span><span class="skill-desc">PowerPoint 创建、编辑、模板</span></div>
+    <div class="skill"><span class="skill-name">xlsx</span><span class="skill-trigger">提及 .xlsx</span><span class="skill-desc">Excel 读写、公式、图表、数据清洗</span></div>
+    <div class="skill"><span class="skill-name">markdown-tools</span><span class="skill-trigger">MD 转换/TOC</span><span class="skill-desc">Markdown ↔ HTML、目录生成、文件合并</span></div>
+    <div class="skill"><span class="skill-name">image-ocr</span><span class="skill-trigger">图片文字提取</span><span class="skill-desc">Tesseract OCR，中英双语，批量模式</span></div>
+  </div>
+</div>
+
+<div class="category c3 open">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>🎨 设计与创意</h2>
+    <span class="badge">6 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">algorithmic-art</span><span class="skill-trigger">算法艺术</span><span class="skill-desc">p5.js 创作：流场、粒子系统、种子随机</span></div>
+    <div class="skill"><span class="skill-name">canvas-design</span><span class="skill-trigger">海报/设计</span><span class="skill-desc">PNG/PDF 视觉设计，原创设计理念</span></div>
+    <div class="skill"><span class="skill-name">frontend-design</span><span class="skill-trigger">前端设计</span><span class="skill-desc">美学方向、排版、避免模板化</span></div>
+    <div class="skill"><span class="skill-name">theme-factory</span><span class="skill-trigger">主题/样式</span><span class="skill-desc">10 套预设主题 + 即时生成</span></div>
+    <div class="skill"><span class="skill-name">brand-guidelines</span><span class="skill-trigger">品牌风格</span><span class="skill-desc">Anthropic 官方品牌色和字体</span></div>
+    <div class="skill"><span class="skill-name">slack-gif-creator</span><span class="skill-trigger">Slack GIF</span><span class="skill-desc">动画 GIF 创作，优化 Slack 约束</span></div>
+  </div>
+</div>
+
+<div class="category c4">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>🛠 开发工具</h2>
+    <span class="badge">4 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">skill-creator</span><span class="skill-trigger">创建/优化 skill</span><span class="skill-desc">Skill 全生命周期：创建、编辑、评估、基准测试</span></div>
+    <div class="skill"><span class="skill-name">mcp-builder</span><span class="skill-trigger">构建 MCP</span><span class="skill-desc">MCP 服务器开发指南（Python FastMCP / Node SDK）</span></div>
+    <div class="skill"><span class="skill-name">web-artifacts-builder</span><span class="skill-trigger">复杂组件</span><span class="skill-desc">React + Tailwind + shadcn/ui 多组件 Artifact</span></div>
+    <div class="skill"><span class="skill-name">webapp-testing</span><span class="skill-trigger">Web 测试</span><span class="skill-desc">Playwright 测试：截图、日志、UI 验证</span></div>
+  </div>
+</div>
+
+<div class="category c5">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>🤖 Claude 相关</h2>
+    <span class="badge">2 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">claude-api</span><span class="skill-trigger">Claude/API</span><span class="skill-desc">模型 ID、定价、参数、流式、Token 计数</span></div>
+    <div class="skill"><span class="skill-name">claude-code-guide</span><span class="skill-trigger">使用问题</span><span class="skill-desc">CLI 功能、Hooks、MCP、IDE 集成</span></div>
+  </div>
+</div>
+
+<div class="category c6">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>🔄 工作流</h2>
+    <span class="badge">7 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">code-review</span><span class="skill-trigger">/code-review</span><span class="skill-desc">Diff 审查：正确性 Bug + 复用/简化/效率</span></div>
+    <div class="skill"><span class="skill-name">simplify</span><span class="skill-trigger">/simplify</span><span class="skill-desc">代码简化：重构、去重、优化（只看质量）</span></div>
+    <div class="skill"><span class="skill-name">security-review</span><span class="skill-trigger">/security-review</span><span class="skill-desc">安全审查：当前分支变更</span></div>
+    <div class="skill"><span class="skill-name">verify</span><span class="skill-trigger">/verify</span><span class="skill-desc">验证改动：运行应用确认功能正常</span></div>
+    <div class="skill"><span class="skill-name">review</span><span class="skill-trigger">/review</span><span class="skill-desc">PR 审查</span></div>
+    <div class="skill"><span class="skill-name">loop</span><span class="skill-trigger">/loop</span><span class="skill-desc">定时循环执行命令</span></div>
+    <div class="skill"><span class="skill-name">run</span><span class="skill-trigger">/run</span><span class="skill-desc">启动项目应用查看效果</span></div>
+  </div>
+</div>
+
+<div class="category c7">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>⚙️ 配置与工具</h2>
+    <span class="badge">6 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">update-config</span><span class="skill-trigger">配置/权限</span><span class="skill-desc">settings.json 管理：权限、Hook、环境变量</span></div>
+    <div class="skill"><span class="skill-name">keybindings-help</span><span class="skill-trigger">快捷键</span><span class="skill-desc">自定义键盘快捷键</span></div>
+    <div class="skill"><span class="skill-name">fewer-permission-prompts</span><span class="skill-trigger">减少弹窗</span><span class="skill-desc">扫描历史 → 自动生成 allowlist</span></div>
+    <div class="skill"><span class="skill-name">file-organizer</span><span class="skill-trigger">整理文件夹</span><span class="skill-desc">按类型/日期/名称自动分类文件</span></div>
+    <div class="skill"><span class="skill-name">image-batch</span><span class="skill-trigger">批量图片</span><span class="skill-desc">缩放、压缩、格式转换、水印、重命名</span></div>
+    <div class="skill"><span class="skill-name">init</span><span class="skill-trigger">/init</span><span class="skill-desc">初始化 CLAUDE.md 项目文档</span></div>
+  </div>
+</div>
+
+<div class="category c8">
+  <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
+    <h2>📝 协作与研究</h2>
+    <span class="badge">3 skills</span>
+  </div>
+  <div class="skills">
+    <div class="skill"><span class="skill-name">doc-coauthoring</span><span class="skill-trigger">写文档/提案</span><span class="skill-desc">结构化文档协作工作流</span></div>
+    <div class="skill"><span class="skill-name">internal-comms</span><span class="skill-trigger">内部沟通</span><span class="skill-desc">状态报告、3P 更新、Newsletter、事故报告</span></div>
+    <div class="skill"><span class="skill-name">deep-research</span><span class="skill-trigger">/deep-research</span><span class="skill-desc">多源深度研究：搜索 → 验证 → 综合报告</span></div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>数据全部本地存储，永久保存 · <a href="https://github.com/zhe275687-ops/claude-skills">GitHub</a></p>
+</div>
+
+</body>
+</html>
